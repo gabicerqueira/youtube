@@ -11,7 +11,7 @@ export default function Routes() {
     return (
         <Stack.Navigator initialRouteName="index">
             <Stack.Screen
-                name="index"
+                name="Bem-vindo(a)"
                 component={Bem_Vindo}
             />
             <Stack.Screen
