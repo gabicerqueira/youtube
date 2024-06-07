@@ -18,6 +18,7 @@ export default function Vimeo() {
 
   return (
     <KeyboardAvoidingView style={estilos.container}>
+      <Text style={estilos.titulo}>Vimeo</Text>
       <View style={estilos.containerPesquisa}>
         <TextInput
           style={estilos.entrada}
@@ -37,7 +38,7 @@ export default function Vimeo() {
               style={estilos.webview}
               javaScriptEnabled={true}
               domStorageEnabled={true}
-              source={{ html: `<iframe width="100%" height="315" src="https://player.vimeo.com/video/${video.uri.split('/').pop()}" frameborder="0" allowfullscreen></iframe>` }}
+              source={{ html: `<iframe width="100%" height="460" src="https://player.vimeo.com/video/${video.uri.split('/').pop()}" frameborder="0" allowfullscreen></iframe>` }}
             />
           </View>
         ))}
@@ -111,10 +112,10 @@ const estilos = StyleSheet.create({
     paddingHorizontal: 20,
   },
   containerVideo: {
-    marginBottom: 20,
+    marginBottom: 40,
     backgroundColor: '#fff',
     borderRadius: 8,
-    padding: 15,
+    padding: 10,
     shadowColor: '#000',
     shadowOffset: {
       width: 0,
@@ -123,6 +124,9 @@ const estilos = StyleSheet.create({
     shadowOpacity: 0.25,
     shadowRadius: 3.84,
     elevation: 5,
+    borderColor: '#cacaca',
+    borderWidth: 1,
+    borderStyle: 'solid'
   },
   tituloVideo: {
     fontSize: 18,
@@ -130,7 +134,11 @@ const estilos = StyleSheet.create({
     marginBottom: 10,
   },
   webview: {
-    width: '100%',
     aspectRatio: 16 / 9,
-  }
+  },
+  titulo: {
+    textAlign: 'center',
+    fontWeight: 'bold',
+    fontSize: 28
+  },
 });

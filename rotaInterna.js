@@ -24,7 +24,7 @@ export default function RotaInterna() {
                 name="Youtube"
                 component={Youtube}
                 options={{
-                    tabBarShowLabel: true,
+                    tabBarShowLabel: false,
                     headerShown: false,
                     tabBarIcon: ({ focused }) => {
                         if (focused) {
@@ -40,7 +40,7 @@ export default function RotaInterna() {
                 name="Vimeo"
                 component={Vimeo}
                 options={{
-                    tabBarShowLabel: true,
+                    tabBarShowLabel: false,
                     headerShown: false,
                     tabBarIcon: ({ focused }) => {
                         if (focused) {

@@ -18,6 +18,7 @@ export default function Youtube() {
 
   return (
     <KeyboardAvoidingView style={estilos.container}>
+      <Text style={estilos.titulo}>Youtube</Text>
       <View style={estilos.containerPesquisa}>
         <TextInput
           style={estilos.entrada}
@@ -37,7 +38,7 @@ export default function Youtube() {
               style={estilos.webview}
               javaScriptEnabled={true}
               domStorageEnabled={true}
-              source={{ html: `<iframe width="100%" height="315" src="https://www.youtube.com/embed/${video.id.videoId}" frameborder="0" allowfullscreen></iframe>` }}
+              source={{ html: `<iframe width="100%" height="450" src="https://www.youtube.com/embed/${video.id.videoId}" frameborder="0" allowfullscreen></iframe>` }}
             />
           </View>
         ))}
@@ -51,30 +52,62 @@ const estilos = StyleSheet.create({
   container: {
     flex: 1,
     backgroundColor: '#f5f5f5',
-    paddingTop: 50,
+    paddingTop: 20,
+  },
+  titulo:{
+    textAlign: 'center',
+    fontWeight: 'bold',
+    fontSize: 28
   },
   containerPesquisa: {
     flexDirection: 'row',
     alignItems: 'center',
     justifyContent: 'center',
-    padding: 10,
-    backgroundColor: '#6200ee',
+    paddingVertical: 20,
+    paddingHorizontal: 15,
+    backgroundColor: '#D95B66',
     borderRadius: 8,
     margin: 20,
+    shadowColor: '#000',
+    shadowOffset: {
+      width: 0,
+      height: 2,
+    },
+    shadowOpacity: 0.25,
+    shadowRadius: 3.84,
+    elevation: 5,
   },
   entrada: {
     height: 40,
     flex: 1,
     backgroundColor: '#fff',
-    borderRadius: 4,
+    borderRadius: 8,
     paddingHorizontal: 10,
     marginRight: 10,
+    fontSize: 16,
+    shadowColor: '#000',
+    shadowOffset: {
+      width: 0,
+      height: 2,
+    },
+    shadowOpacity: 0.25,
+    shadowRadius: 3.84,
+    elevation: 5,
   },
   botao: {
-    backgroundColor: '#03dac5',
+    backgroundColor: '#F20519',
     paddingVertical: 10,
     paddingHorizontal: 20,
     borderRadius: 4,
+    shadowColor: '#000',
+    shadowOffset: {
+      width: 0,
+      height: 2,
+    },
+    shadowOpacity: 0.25,
+    shadowRadius: 3.84,
+    elevation: 5,
+    fontSize: 16,
   },
   textoBotao: {
     color: '#fff',
@@ -85,10 +118,10 @@ const estilos = StyleSheet.create({
     paddingHorizontal: 20,
   },
   containerVideo: {
-    marginBottom: 20,
+    marginBottom: 40,
     backgroundColor: '#fff',
     borderRadius: 8,
-    padding: 15,
+    padding: 10,
     shadowColor: '#000',
     shadowOffset: {
       width: 0,
@@ -97,6 +130,9 @@ const estilos = StyleSheet.create({
     shadowOpacity: 0.25,
     shadowRadius: 3.84,
     elevation: 5,
+    borderColor: '#cacaca',
+    borderWidth: 1,
+    borderStyle: 'solid'
   },
   tituloVideo: {
     fontSize: 18,
@@ -104,7 +140,6 @@ const estilos = StyleSheet.create({
     marginBottom: 10,
   },
   webview: {
-    width: '100%',
     aspectRatio: 16 / 9,
   }
 });
