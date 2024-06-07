@@ -1,10 +1,10 @@
 import React, { useState } from 'react';
 import { StyleSheet, View, TextInput, TouchableOpacity, Text, ScrollView, KeyboardAvoidingView } from 'react-native';
 import { WebView } from 'react-native-webview';
-import { buscarVideos } from './youtube';
+import { buscarVideos } from './vimeo';
 
 export default function Vimeo() {
-  const [pesquisa, setpesquisa] = useState('');
+  const [pesquisa, setPesquisa] = useState('');
   const [videos, setVideos] = useState([]);
 
   const pesquisar = async () => {
@@ -23,26 +23,25 @@ export default function Vimeo() {
           style={estilos.entrada}
           placeholder="Digite sua pesquisa"
           value={pesquisa}
-          onChangeText={setpesquisa}
+          onChangeText={setPesquisa}
         />
-         <TouchableOpacity style={estilos.botao} onPress={pesquisar}>
+        <TouchableOpacity style={estilos.botao} onPress={pesquisar}>
           <Text style={estilos.textoBotao}>Pesquisar</Text>
         </TouchableOpacity>
       </View>
       <ScrollView style={estilos.scrollView}>
         {videos.map(video => (
-          <View key={video.id.videoId} style={estilos.containerVideo}>
-            <Text style={estilos.tituloVideo}>{video.snippet.title}</Text>
+          <View key={video.uri} style={estilos.containerVideo}>
+            <Text style={estilos.tituloVideo}>{video.name}</Text>
             <WebView
               style={estilos.webview}
               javaScriptEnabled={true}
               domStorageEnabled={true}
-              source={{ html: `<iframe width="100%" height="315" src="https://www.youtube.com/embed/${video.id.videoId}" frameborder="0" allowfullscreen></iframe>` }}
+              source={{ html: `<iframe width="100%" height="315" src="https://player.vimeo.com/video/${video.uri.split('/').pop()}" frameborder="0" allowfullscreen></iframe>` }}
             />
           </View>
         ))}
       </ScrollView>
-      {/* </KeyboardAvoidingView> apenas para localizar */}
     </KeyboardAvoidingView>
   );
 }
@@ -51,30 +50,57 @@ const estilos = StyleSheet.create({
   container: {
     flex: 1,
     backgroundColor: '#f5f5f5',
-    paddingTop: 50,
+    paddingTop: 20,
   },
   containerPesquisa: {
     flexDirection: 'row',
     alignItems: 'center',
     justifyContent: 'center',
-    padding: 10,
-    backgroundColor: '#6200ee',
+    paddingVertical: 20,
+    paddingHorizontal: 15,
+    backgroundColor: '#88DFF2',
     borderRadius: 8,
     margin: 20,
+    shadowColor: '#000',
+    shadowOffset: {
+      width: 0,
+      height: 2,
+    },
+    shadowOpacity: 0.25,
+    shadowRadius: 3.84,
+    elevation: 5,
   },
   entrada: {
     height: 40,
     flex: 1,
     backgroundColor: '#fff',
-    borderRadius: 4,
+    borderRadius: 8,
     paddingHorizontal: 10,
     marginRight: 10,
+    fontSize: 16,
+    shadowColor: '#000',
+    shadowOffset: {
+      width: 0,
+      height: 2,
+    },
+    shadowOpacity: 0.25,
+    shadowRadius: 3.84,
+    elevation: 5,
   },
   botao: {
-    backgroundColor: '#03dac5',
+    backgroundColor: '#05C7F2',
     paddingVertical: 10,
     paddingHorizontal: 20,
     borderRadius: 4,
+    shadowColor: '#000',
+    shadowOffset: {
+      width: 0,
+      height: 2,
+    },
+    shadowOpacity: 0.25,
+    shadowRadius: 3.84,
+    elevation: 5,
+    fontSize: 16,
   },
   textoBotao: {
     color: '#fff',
